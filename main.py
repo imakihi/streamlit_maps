@@ -60,7 +60,7 @@ txt = st.text_input(
 
 # check box.
 if st.checkbox('show image'):
-    img = Image.open('https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DF/production/_96317895_gettyimages-164067218.jpg')
+    img = Image.open('monkey.jpg')
     st.image(img, caption='test', use_column_width=True)
 
 
