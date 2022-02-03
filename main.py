@@ -6,7 +6,7 @@ import time
 
 st.title('Streamlit 超入門')
 
-df = pd.read_csv('c:/tmp/trip.csv')
+df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv')
 
 # progress bar
 'プログレスバーの表示'
