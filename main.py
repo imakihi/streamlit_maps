@@ -4,38 +4,41 @@ import pandas as pd
 from PIL import Image
 import time
 
-st.title('Streamlit 超入門')
+st.title('Streamlit でインタラクティブな地図アプリ作成')
 
 df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv')
 
 # progress bar
-'プログレスバーの表示'
+'アプリを準備しています。'
 latest_iteration = st.empty()
 bar = st.progress(0)
 for i in range(100):
     
-    latest_iteration.text(f'Iteration {i+1}')
+    latest_iteration.text(f'進み具合 {i+1}')
     bar.progress(i + 1)
     time.sleep(0.1)
 
 # column
-left_column, right_column = st.columns(2)
+#left_column, right_column = st.columns(2)
 
-btn = left_column.button('右カラムに文字を表示')
-if btn:
-    right_column.write('右')
+#btn = left_column.button('右カラムに文字を表示')
+#if btn:
+#    right_column.write('右')
 
 # expander
-expder = st.expander('問い合わせ')
-expder.write('コメント１')
-expder.write('コメント２')
-expder.write('コメント３')
+#expder = st.expander('問い合わせ')
+#expder.write('コメント１')
+#expder.write('コメント２')
+#expder.write('コメント３')
 
 # table
+'USGSの地震のデータです。自動的に最新のデータにアップデートされます。'
 st.dataframe(df.style.highlight_max(axis=0))
 
 # chart
-st.line_chart(df[['mag']])
+'マグニチュードの頻度分布'
+hist_values = np.histogram(df[['mag']], bins=8, range=(0,8))[0]
+st.bar_chart(hist_values)
 
 # map
 st.map(df)
@@ -44,16 +47,16 @@ st.write('Image')
 
 # select box
 option = st.selectbox(
-    '好きな数字を入れて',
+    '今まで経験した一番大きな地震のマグニチュードを教えてください。',
     list(range(1,11))
 )
-'好きな数字は', option, 'です'
+'一番大きかった地震はマグニチュード', option, 'です'
 
 # text box (side bar)
 txt = st.text_input(
-    'あなたの趣味を教えてください'
+    '地震が来たとき、どうしますか？'
 )
-'趣味は', txt, 'です'
+'わたしは', txt
 
 # check box.
 if st.checkbox('show image'):
@@ -62,8 +65,8 @@ if st.checkbox('show image'):
 
 
 # slider (side bar)
-cond = st.slider('今の感情は', 0,100,50)
-'感情レベルは', cond, 'です'
+cond = st.slider('このアプリの完成度はどうでしょう？', 0,100,50)
+'完成度は', cond, 'です'
 
 # マジックコマンドでテキスト
 """
