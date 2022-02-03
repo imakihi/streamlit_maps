@@ -9,14 +9,14 @@ st.title('Streamlit でインタラクティブな地図アプリ作成')
 df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv')
 
 # progress bar
-'アプリを準備しています。'
-latest_iteration = st.empty()
-bar = st.progress(0)
-for i in range(100):
-    
-    latest_iteration.text(f'進み具合 {i+1}')
-    bar.progress(i + 1)
-    time.sleep(0.1)
+#'アプリを準備しています。'
+#latest_iteration = st.empty()
+#bar = st.progress(0)
+#for i in range(100):
+#    
+#    latest_iteration.text(f'進み具合 {i+1}')
+#    bar.progress(i + 1)
+#    time.sleep(0.1)
 
 # column
 #left_column, right_column = st.columns(2)
