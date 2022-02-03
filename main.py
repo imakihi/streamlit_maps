@@ -35,13 +35,10 @@ expder.write('コメント３')
 st.dataframe(df.style.highlight_max(axis=0))
 
 # chart
-st.line_chart(df[['623','624']])
+st.line_chart(df[['mag']])
 
-df2 = pd.DataFrame(
-    np.random.rand(100,2)/[50,50] + [35.69, 139.70],
-    columns=['lat','lon']
-)
-st.map(df2)
+# map
+st.map(df)
 
 st.write('Image')
 
@@ -60,7 +57,7 @@ txt = st.text_input(
 
 # check box.
 if st.checkbox('show image'):
-    img = Image.open('c:/tmp/test.jpg')
+    img = Image.open('https://ichef.bbci.co.uk/news/976/cpsprodpb/E9DF/production/_96317895_gettyimages-164067218.jpg')
     st.image(img, caption='test', use_column_width=True)
 
 
@@ -70,9 +67,9 @@ cond = st.slider('今の感情は', 0,100,50)
 
 # マジックコマンドでテキスト
 """
-# 章
-## 節
-### 項
+# 1
+## 2
+### 3
 
 ```python
 import streamlit as st
