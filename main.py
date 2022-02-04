@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd 
 from PIL import Image
 import time
+import pydeck as pdk
 
 st.title('Streamlit でインタラクティブな地図アプリ作成')
 
