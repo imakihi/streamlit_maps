@@ -9,6 +9,9 @@ st.title('Streamlit でインタラクティブな地図アプリ作成')
 
 df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv')
 
+# drop na
+df = df.dropna()
+
 # progress bar
 #'アプリを準備しています。'
 #latest_iteration = st.empty()
@@ -46,7 +49,7 @@ st.map(df)
 
 # pydeck
 st.pydeck_chart(pdk.Deck(
-    map_style = 'mapbox://styles/mapbox/light-v9',
+    map_style = 'mapbox://styles/mapbox/light-v10',
     initial_view_state=pdk.ViewState(
         latitude=37.76,
         longitude=-122.4,
