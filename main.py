@@ -9,7 +9,9 @@ st.title('Streamlit でインタラクティブな地図アプリ作成')
 
 df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.csv')
 
-# drop na
+# drop na,　I got a trouble to show data if there are none in the data
+# https://github.com/streamlit/streamlit/issues/984
+df = df[['time','latitude','longitude','depth','mag']]
 df = df.dropna()
 
 # progress bar
