@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np 
 import pandas as pd 
-from PIL import Image
+#from PIL import Image
 import time
 import pydeck as pdk
 
@@ -74,7 +74,7 @@ st.pydeck_chart(pdk.Deck(
     ],    
 ))
 
-st.write('Image')
+#st.write('Image')
 
 # select box
 option = st.selectbox(
@@ -90,9 +90,9 @@ txt = st.text_input(
 'わたしは', txt
 
 # check box.
-if st.checkbox('show image'):
-    img = Image.open('monkey.jpg')
-    st.image(img, caption='test', use_column_width=True)
+#if st.checkbox('show image'):
+#    img = Image.open('monkey.jpg')
+#    st.image(img, caption='test', use_column_width=True)
 
 
 # slider (side bar)
